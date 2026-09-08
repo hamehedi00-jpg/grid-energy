@@ -1,0 +1,71 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  /* GRID ENERGY brand palette */
+  --color-paper: #eeeeea;
+  --color-ink: #17191d;
+  --color-ink-soft: #23262c;
+  --color-amber: #d1802a;
+  --color-amber-bright: #e79a3f;
+  --color-concrete: #6c6f74;
+  --color-line: #d4d3cc;
+  --color-line-dark: #33363d;
+
+  --color-background: var(--color-paper);
+  --color-foreground: var(--color-ink);
+  --color-border: var(--color-line);
+  --color-primary: var(--color-ink);
+  --color-primary-foreground: var(--color-paper);
+  --color-muted: #e2e1db;
+  --color-muted-foreground: var(--color-concrete);
+  --color-accent: var(--color-amber);
+  --color-ring: var(--color-amber);
+
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius: 0px;
+}
+
+:root {
+  color-scheme: light;
+  --radius: 0px;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-paper text-ink;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-amber);
+    color: var(--color-ink);
+  }
+}
+
+@layer utilities {
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, var(--color-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-line) 1px, transparent 1px);
+  }
+  .grid-lines-dark {
+    background-image:
+      linear-gradient(to right, var(--color-line-dark) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-line-dark) 1px, transparent 1px);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
